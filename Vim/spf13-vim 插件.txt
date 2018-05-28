@@ -1,0 +1,14 @@
+1. spf13的安装  spf13-vim 插件
+
+Linux/Mac
+
+在预先安装好Git 1.7+ and Vim 7.4+的机子上直接执行：curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh  
+考虑到国内网速，安装需要访问git，总体可能需要花费10几分钟，耐心等待即可。
+ 如果失败，请检查
+apt update "系统索引，这样才能获取最新的软件包信息
+apt upgrade "软件包升级
+如果没有安装git和vim
+
+
+sudo apt install git  
+sudo apt install vim-gtk  
