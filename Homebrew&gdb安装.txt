@@ -1,0 +1,90 @@
+Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
+
+
+安装
+在打开的命令行工具中输入如下语句：
+ruby -e "$(curl --insecure -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+执行上面命令后会提示输入系统密码
+输入密码后会开始下载homebrew,如果此时网速不稳定可能会出现错误提示：curl: (35) Server aborted the SSL handshake。
+此时需要执行卸载操作，输入如下命令进行卸载：
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+卸载完成后再次尝试安装。
+此时可以在命令行中输入命令brew进行测试，可以看到如下结果,说明安装成功。
+
+
+卸载
+$ cd `brew --prefix`
+$ rm -rf Cellar
+$ brew prune
+$ rm `git ls-files`
+$ rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions
+$ rm -rf .git
+$ rm -rf ~/Library/Caches/Homebrew
+
+
+
+安装任意包
+
+$ brew install <packageName>
+1
+2
+示例：安装wget
+
+$ brew install wget
+1
+2
+卸载任意包
+
+$ brew uninstall <packageName>
+1
+2
+示例：卸载git
+
+$ brew uninstall git
+1
+2
+查询可用包
+
+$ brew search <packageName>
+1
+2
+查看已安装包列表
+
+$ brew list
+1
+2
+查看任意包信息
+
+$ brew info <packageName>
+1
+2
+更新Homebrew
+
+$ brew update
+1
+2
+查看Homebrew版本
+
+$ brew -v
+1
+2
+Homebrew帮助信息
+
+$ brew -h
+
+默认安装在需要系统root用户读写权限的目录下
+如果你不想每次都使用sudo指令，你有两种方法可以选择:
+
+对/usr/local 目录下的文件读写进行root用户授权
+
+$ sudo chown -R $USER /usr/local
+1
+2
+示例：
+
+$ sudo chown -R wentianen /usr/local
+1
+2
+（推荐）安装Homebrew时对安装路径进行指定，直接安装在不需要系统root用户授权就可以自由读写的目录下
+
+<install path> -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
